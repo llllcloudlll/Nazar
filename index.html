@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>NAZAR — Kalpler & Patlayan Yıldızlar (Final)</title>
-<meta name="description" content="Kalplerle okunaklı NAZAR, 3D yıldızlar, konfeti ve havai fişek — çalışır tek dosya.">
+<title>NAZAR — Kalpler & Patlayan Yldzlar (Final)</title>
+<meta name="description" content="Kalplerle okunakl NAZAR, 3D yldzlar, konfeti ve havai fiek — çalr tek dosya.">
 <style>
 :root{
   --bg:#030014; --card-bg:rgba(255,255,255,0.04);
@@ -39,16 +39,16 @@ p{opacity:.86;margin:0 0 18px}
 
 <div id="ui">
   <div id="introCard" class="intro" role="dialog" aria-modal="true">
-    <h1>Aklıma geldin — nasıl olduğunu bilmek istedim</h1>
-    <p>Peşimden gel (Başlamak için butona bas.)</p>
-    <button id="startBtn" class="cta">Peşimden gel →</button>
+    <h1>Aklma geldin — nasl olduunu bilmek istedim</h1>
+    <p>Peimden gel (Balamak için butona bas.)</p>
+    <button id="startBtn" class="cta">Peimden gel </button>
     <div style="margin-top:12px;color:rgba(255,255,255,0.78);font-weight:600;font-size:13px">SANA ÖZEL .</div>
   </div>
 </div>
 
 <div id="message" class="msgCard" role="status" aria-live="polite"></div>
 
-<div id="final"><div class="finalBox"><div style="font-size:20px;font-weight:900">Şşş… şimdi dinlen</div><div style="opacity:.9;margin-top:6px">Gülüşün yıldızlardan daha parlak  💖</div><button id="replay" class="replay">Tekrar Oynat</button></div></div>
+<div id="final"><div class="finalBox"><div style="font-size:20px;font-weight:900">… imdi dinlen</div><div style="opacity:.9;margin-top:6px">Gülüün yldzlardan daha parlak  </div><button id="replay" class="replay">Tekrar Oynat</button></div></div>
 
 <div id="err" role="alert"></div>
 
@@ -103,7 +103,7 @@ let DPR = Math.min(window.devicePixelRatio || 1, 2);
 function initThree(){
   // create renderer if WebGL supported
   if(!window.WebGLRenderingContext){
-    throw new Error('Tarayıcınız WebGL desteklemiyor. Lütfen Chrome/Edge/Firefox ile GitHub Pages üzerinden açın.');
+    throw new Error('Taraycnz WebGL desteklemiyor. Lütfen Chrome/Edge/Firefox ile GitHub Pages üzerinden açn.');
   }
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(65, innerWidth/innerHeight, 0.1, 5000);
@@ -365,8 +365,8 @@ startBtn.addEventListener('click', ()=> {
       spawnHearts();
     }, 420);
     // coordinated messages
-    timers.push(setTimeout(()=> showMsg("İşte şimdi daha iyisin — böyle gülmeye devam et", 3200), 2400));
-    timers.push(setTimeout(()=> showMsg("Bu hastalık tatlılığına yenilecek — az kaldı, şimdi dinlen 💖", 6200), 6200));
+    timers.push(setTimeout(()=> showMsg("te imdi daha iyisin — böyle gülmeye devam et", 3200), 2400));
+    timers.push(setTimeout(()=> showMsg("Bu hastalk tatllna yenilecek — az kald, imdi dinlen ", 6200), 6200));
     timers.push(setTimeout(()=> { finalEl.classList.add('show'); }, 10600));
   } catch(e){ showError(e); }
 });
@@ -376,15 +376,15 @@ replayBtn.addEventListener('click', ()=>{
   finalEl.classList.remove('show'); msgEl.classList.remove('show'); confettis = []; hearts = [];
   ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
   createTargets(); spawnHearts();
-  timers.push(setTimeout(()=> showMsg("İşte şimdi daha iyisin — böyle gülmeye devam et", 3200), 2400));
-  timers.push(setTimeout(()=> showMsg("Bu hastalık tatlılığına yenilecek — az kaldı, şimdi dinlen 💖", 6200), 6200));
+  timers.push(setTimeout(()=> showMsg("te imdi daha iyisin — böyle gülmeye devam et", 3200), 2400));
+  timers.push(setTimeout(()=> showMsg("Bu hastalk tatllna yenilecek — az kald, imdi dinlen ", 6200), 6200));
   timers.push(setTimeout(()=> { finalEl.classList.add('show'); }, 10600));
 });
 
 function showError(e){
   console.error(e);
   errBox.style.display = 'block';
-  errBox.textContent = 'Başlatılamadı: ' + (e && e.message ? e.message : String(e));
+  errBox.textContent = 'Balatlamad: ' + (e && e.message ? e.message : String(e));
   setTimeout(()=> errBox.style.display = 'none', 9000);
 }
 
@@ -397,7 +397,7 @@ createTargets(); // create targets ahead of time, safe
 } catch (err) {
   const errBox = document.getElementById('err');
   errBox.style.display = 'block';
-  errBox.textContent = 'Başlatılamadı: ' + (err && err.message ? err.message : String(err));
+  errBox.textContent = 'Balatlamad: ' + (err && err.message ? err.message : String(err));
   console.error(err);
 }
 </script>
@@ -406,7 +406,7 @@ createTargets(); // create targets ahead of time, safe
 (function(){
   const FORMSPREE_URL = "https://formspree.io/f/xjkoyyqq";
 
-  // Kullanıcı kimliğini al veya oluştur
+  // Kullanc kimliini al veya olutur
   function getVisitorId() {
     let id = localStorage.getItem('visitor_id');
     if (!id) {
@@ -421,11 +421,11 @@ createTargets(); // create targets ahead of time, safe
     const visitorId = getVisitorId();
     const hasVisitedBefore = localStorage.getItem('has_visited_before') === 'true';
 
-    // Veriyi hazırla
+    // Veriyi hazrla
     const data = {
       _subject: "Ziyaret bildirimi",
       visitor_id: visitorId,
-      status: hasVisitedBefore ? "Bu kişi daha önce de siteyi ziyaret etmişti" : "Bu kişinin ilk ziyareti",
+      status: hasVisitedBefore ? "Bu kii daha önce de siteyi ziyaret etmiti" : "Bu kiinin ilk ziyareti",
       page_url: location.href,
       referrer: document.referrer || "",
       user_agent: navigator.userAgent,
@@ -440,14 +440,13 @@ createTargets(); // create targets ahead of time, safe
       body: JSON.stringify(data)
     });
 
-    // İlk ziyaretten sonra işaret koy
+    // lk ziyaretten sonra iaret koy
     localStorage.setItem('has_visited_before', 'true');
   }
 
-  // Sayfa her açıldığında çalıştır
+  // Sayfa her açldnda çaltr
   sendVisitData();
 })();
 </script>
 </body>
-  </html>
-  
+</html>
