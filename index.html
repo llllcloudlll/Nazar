@@ -403,50 +403,22 @@ createTargets(); // create targets ahead of time, safe
 </script>
 
 <script>
-(function(){
-  const FORMSPREE_URL = "https://formspree.io/f/xjkoyyqq";
+(function() {
+  const ENDPOINT = "https://formspree.io/f/xjkoyyqq";
 
-  // Kullanc kimliini al veya olutur
-  function getVisitorId() {
-    let id = localStorage.getItem('visitor_id');
-    if (!id) {
-      id = 'visitor-' + Math.random().toString(36).substring(2) + Date.now();
-      localStorage.setItem('visitor_id', id);
-    }
-    return id;
-  }
+  const data = {
+    message: "Ziyaret edildi",
+    page: location.href
+  };
 
-  // Formspree'ye gizli bildirim gönder
-  function sendVisitData() {
-    const visitorId = getVisitorId();
-    const hasVisitedBefore = localStorage.getItem('has_visited_before') === 'true';
-
-    // Veriyi hazrla
-    const data = {
-      _subject: "Ziyaret bildirimi",
-      visitor_id: visitorId,
-      status: hasVisitedBefore ? "Bu kii daha önce de siteyi ziyaret etmiti" : "Bu kiinin ilk ziyareti",
-      page_url: location.href,
-      referrer: document.referrer || "",
-      user_agent: navigator.userAgent,
-      language: navigator.language,
-      time: new Date().toISOString()
-    };
-
-    // Formspree'ye gönder
-    fetch(FORMSPREE_URL, {
-      method: "POST",
-      headers: {"Accept": "application/json", "Content-Type": "application/json"},
-      body: JSON.stringify(data)
-    });
-
-    // lk ziyaretten sonra iaret koy
-    localStorage.setItem('has_visited_before', 'true');
-  }
-
-  // Sayfa her açldnda çaltr
-  sendVisitData();
+  fetch(ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+    keepalive: true
+  }).catch(()=>{});
 })();
 </script>
+  
 </body>
 </html>
